@@ -36,7 +36,7 @@ def url_login():
 def url_protected():
     auth_token = request.headers.get('Authorization')
     res = {
-        "data": protected.access_data(auth_token)
+        "data": protected.access_data(auth_token.split(' ')[1])
     }
     return jsonify(res)
 

@@ -1,4 +1,15 @@
 FROM python:3-alpine
 
-# Add your instructions to dockerize the application
-# App must run on port 8000
+LABEL maintainer="oliveros.carlos.ro@gmail.com"
+
+RUN mkdir /home/SRE-Bootcamp-Q12023
+
+COPY . /home/SRE-Bootcamp-Q12023
+
+WORKDIR /home/SRE-Bootcamp-Q12023
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["python", "api.py"]
